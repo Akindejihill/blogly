@@ -1,0 +1,22 @@
+{% extends 'base.html' %}
+
+{% block title %}Add Users{% endblock %}
+
+{% block content %}
+
+    <h1>Add a user</h1>
+    <form action = '/users/new' method = "POST">
+        <label for="firstname">First Name</label>
+        <input type="text" id="firstname" name="firstname">
+        <br>
+        <label for="lastname">Last Name</label>
+        <input type="text" id="lastname" name="lastname">
+        <br>
+        <label for="imgurl">Image URL</label>
+        <input type="text" id="imgurl" name="imgurl">
+        <br>
+        <input type="submit" value="Add">
+    </form>
+
+{% endblock %}
+

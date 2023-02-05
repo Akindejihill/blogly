@@ -1,0 +1,16 @@
+{% extends 'base.html' %}
+
+{% block title %}Add Users{% endblock %}
+
+{% block content %}
+
+    <h1>{{user.first_name}} {{user.last_name}}</h1>
+    <ul>
+        <li>First name: {{user.first_name}}</li>
+        <li>Last name: {{user.last_name}}</li>
+        <img alt="profile picture for {{user.first_name}} {{user.last_name}}" src="{{user.image_url}}">
+    </ul>
+    <a href="/users/{{user.id}}/edit"><button type="button">Edit</button></a> <a href="/users/{{user.id}}/delete"><button type="button">Delete</button></a>
+
+{% endblock %}
+
