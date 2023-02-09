@@ -1,0 +1,17 @@
+{% extends 'base.html' %}
+
+{% block title %}Welcome to Blogly!{% endblock %}
+
+{% block content %}
+
+<h1>Blogly Recent Posts</h1>
+
+{% for post in posts %}
+
+<h2><a href="/posts/{{post.id}}">{{post.title}}</a></h2>
+<p style="width : 60em; height : 3em; overflow:hidden ">{{post.content}}</p>
+<p>by {{post.user.first_name}} {{post.user.last_name}} on {{post.created_at}}</p>
+{% endfor %}
+
+
+{% endblock %}

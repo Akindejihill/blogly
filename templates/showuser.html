@@ -4,13 +4,20 @@
 
 {% block content %}
 
-    <h1>{{user.first_name}} {{user.last_name}}</h1>
-    <ul>
-        <li>First name: {{user.first_name}}</li>
-        <li>Last name: {{user.last_name}}</li>
-        <img alt="profile picture for {{user.first_name}} {{user.last_name}}" src="{{user.image_url}}">
-    </ul>
-    <a href="/users/{{user.id}}/edit"><button type="button">Edit</button></a> <a href="/users/{{user.id}}/delete"><button type="button">Delete</button></a>
+    <img alt="profile picture for {{user.first_name}} {{user.last_name}}" src="{{user.image_url}}" style="max-width: 250px; text-align: right">
+    <div style="display: inline-block">
+        <h1>{{user.first_name}} {{user.last_name}}</h1>
+
+        <a href="/users/{{user.id}}/edit"><button type="button">Edit</button></a> <a href="/users/{{user.id}}/delete"><button type="button">Delete</button></a>
+
+        <h2>Posts</h2>
+        <ul>
+            {% for post in posts %}
+            <li><a href="/posts/{{post.id}}">{{post.title}}</a></li>
+            {% endfor %}
+        </ul>
+        <a href="/users/{{user.id}}/posts/new"><button type="button">Add Post</button>
+    </div>
 
 {% endblock %}
 
