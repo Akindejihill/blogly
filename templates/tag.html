@@ -1,0 +1,15 @@
+{% extends 'base.html' %}
+
+{% block title %}Tag: {{select[0].name}}{% endblock %}
+
+{% block content %}
+
+    <h1>{{select[0].name}}</h1>
+    <ul>
+        {% for selection in select %}
+            <li><a href="/posts/{{selection.post_id}}">{{selection.title}}</a></li>
+        {% endfor %}
+    </ul>
+    <a href="/tags"><button id="back" type="button">Back</button></a><a href="/tags/{{select[0].id}}/edit"><button type="button">Edit</button></a><a href="/tags/{{select[0].id}}/delete"><button type="button">Delete</button></a>
+
+{% endblock %}

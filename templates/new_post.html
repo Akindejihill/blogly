@@ -12,6 +12,11 @@
         <label for="content">Content</label>
         <textarea id="content" name="content" palceholder="Write your message here"></textarea>
         <br>
+
+        {% for tag in tags %}
+        <input type='checkbox' id="tag{{tag.id}}" name="tags" value="{{tag.id}}"><label for="tag{{tag.id}}">{{tag.name}}<br></label>
+        {% endfor %}
+
         <a href="/users/{{user}}"><button type="button">Cancel</button></a>
         <input type="submit" value="Update">
     </form>

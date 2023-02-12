@@ -1,6 +1,6 @@
 {% extends 'base.html' %}
 
-{% block title %}Edit a post by {{post.user.first_name}} {{post.user.last_name}}{% endblock %}
+{% block title %}Edit a post by {{post.first_name}} {{post.last_name}}{% endblock %}
 
 {% block content %}
 
@@ -12,6 +12,15 @@
         <label for="content">Content</label>
         <textarea style="width:30em; height:7em" id="content" name="content">{{post.content}}</textarea>
         <br>
+
+        {% for tag in tags %}
+            {% if tag.id in checked %}
+                <input checked type='checkbox' id="tag{{tag.id}}" name="tags" value="{{tag.id}}"><label for="tag{{tag.id}}">{{tag.name}}<br></label>
+            {% else %}
+                <input type='checkbox' id="tag{{tag.id}}" name="tags" value="{{tag.id}}"><label for="tag{{tag.id}}">{{tag.name}}<br></label>
+            {% endif %}
+        {% endfor %}
+
         <a href="/posts/{{post.id}}"><button type="button">Cancel</button></a>
         <input type="submit" value="Update">
     </form>

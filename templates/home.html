@@ -8,9 +8,10 @@
 
 {% for post in posts %}
 
-<h2><a href="/posts/{{post.id}}">{{post.title}}</a></h2>
-<p style="width : 60em; height : 3em; overflow:hidden ">{{post.content}}</p>
-<p>by {{post.user.first_name}} {{post.user.last_name}} on {{post.created_at}}</p>
+<h2><a href="/posts/{{post['id']}}">{{post['title']}}</a></h2>
+<p style="width : 60em; height : 3em; overflow:hidden ">{{post['content']}}</p>
+<p>by {{post['first_name']}} {{post['last_name']}} on {{post['created_at']}}</p>
+<p>Tags: {% for tag in post['tags'] %} <span class="tag"><a href="/tags/{{tag.tag_id}}">{{tag.name}}</a></span> {% endfor %}</p>
 {% endfor %}
 
 

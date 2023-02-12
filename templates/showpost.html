@@ -1,18 +1,19 @@
 {% extends 'base.html' %}
 
-{% block title %}{{post.title}}{% endblock %}
+{% block title %}{{select[0].title}}{% endblock %}
 
 {% block content %}
 
     <div style="display: inline-block">
-        <h1>{{post.title}}</h1>
-        <h3>By {{post.user.first_name}} {{post.user.last_name}}</h3>
+        <h1>{{select[0].title}}</h1>
+        <h3>By {{select[0].first_name}} {{select[0].last_name}}</h3>
 
         <div>
-            {{post.content}}
+            {{select[0].content}}
         </div>
 
-        <a href="/users/{{post.author}}"><button id="back" type="button">Back</button></a><a href="/posts/{{post.id}}/edit"><button type="button">Edit</button></a><a href="/posts/{{post.id}}/delete"><button type="button">Delete</button></a>
+        <p>Tags: {% for tag in tags %}<span class="tag"><a href="/tags/{{tag.Tag.id}}">{{tag.Tag.name}}</a></span> {% endfor %}</p>
+        <a href="/users/{{select[0].author}}"><button id="back" type="button">Back</button></a><a href="/posts/{{select[0].id}}/edit"><button type="button">Edit</button></a><a href="/posts/{{select[0].id}}/delete"><button type="button">Delete</button></a>
 
     </div>
 {% endblock %}
